@@ -20,25 +20,26 @@ router.post("/", async (req, res) => {
   if (!from || !to || !body)
     return res.status(404).json({ success: false, message: "Required inputs" });
 
-  try {
-    client.messages
-      .create({
-        body,
-        from,
-        to,
-      })
-      .then((message) => console.log(message.sid))
-      .done();
-    return res
-      .status(201) // response 201 means Created
-      .json({
-        success: true,
-        message: "successfully send",
-      });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
+  return res.json({ success: true, message: "testststst" });
+  // try {
+  //   client.messages
+  //     .create({
+  //       body,
+  //       from,
+  //       to,
+  //     })
+  //     .then((message) => console.log(message.sid))
+  //     .done();
+  //   return res
+  //     .status(201) // response 201 means Created
+  //     .json({
+  //       success: true,
+  //       message: "successfully send",
+  //     });
+  // } catch (err) {
+  //   console.log(err);
+  //   return res.status(500).json(err);
+  // }
 });
 
 module.exports = router;
